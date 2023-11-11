@@ -1,66 +1,16 @@
-## Foundry
+# Minucurso BlockChain 
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Introdução
 
-Foundry consists of:
+No blockchain existem uma chave publíca que é criada pelo usuário, com ela, é gerado uma chave prívada utilizando alguma função Hash. Desta forma, uma carteira (Wallet) é uma conta com uma chave pública e uma privada, e quando é realizado uma transição a chave pública do usuário que realizou enviou essa mensagem é inserido nesse bloco de transação.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+![introdução](introduction.jpeg)
 
-## Documentation
+Esse bloco de transação se fecha em algum período de tempo determinado pela blockchain, se tornando imutável e outro bloco é iniciado contendo o endereço para o bloco anterior como uma LinkedList (Isso é o BlockChain).
 
-https://book.getfoundry.sh/
+![Mudança de Estados](statesChange.jpeg)
 
-## Usage
+**Consenso:** máquinas precisam ter consenso sobre operações na rede, por exemplo:
+Uma máquina A realiza uma transação para uma máquina B e C ao mesmo tempo, com isso, pode ocorrer que ele esteja realizando essas transações com o mesmo saldo. Ou alguma outra informação ainda não esteja presente em alguma máquina no momento em que é requisitado essa informação e, mesmo assim o usuário acaba sendo direcionado para esse servidor, ou por fim, algumas máquinas malignas tentando validar alguma informação. Portanto, é necessário uma forma para que haja consenso de transições e informaçãoes no banco.
 
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+![conflito e consenso](conflict.png)
